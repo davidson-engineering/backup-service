@@ -1,0 +1,12 @@
+logfile: /var/log/usb_backup_agent.log
+log_level: INFO
+
+usb:
+  uuid: "1234-ABCD"          # UUID of your USB drive
+  mount_point: "/mnt/usb_backup"
+
+sources:
+  - name: share1
+    path: /mnt/network_share1
+  - name: share2
+    path: /mnt/network_share2
