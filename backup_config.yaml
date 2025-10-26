@@ -6,7 +6,15 @@ usb:
   mount_point: "/mnt/usb_backup"
 
 sources:
+
   - name: share1
     path: /mnt/network_share1
+    exclude:
+      - "*.tmp"
+      - ".cache"
+
   - name: share2
     path: /mnt/network_share2
+    exclude:
+      - "*.tmp"
+      - ".cache"
