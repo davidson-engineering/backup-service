@@ -1,15 +1,12 @@
-logfile: /var/log/usb_backup_agent.log
-log_level: INFO
-
-usb:
-  uuid: "1234-ABCD"          # UUID of your USB drive
-  mount_point: "/mnt/usb_backup"
+# Completed snapshots to keep for each source. Unchanged files are hard-linked
+# between snapshots, so each extra snapshot only costs the space of what changed.
+keep: 30
 
 sources:
 
-  - name: share1
-    path: /mnt/network_share1
-    exclude:
+  - name: share1                 # folder name on the backup drive
+    path: /mnt/network_share1    # must be a mount point unless require_mount: false
+    exclude:                     # rsync exclude patterns
       - "*.tmp"
       - ".cache"
 

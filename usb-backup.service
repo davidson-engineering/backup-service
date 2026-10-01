@@ -5,8 +5,7 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
-WorkingDirectory=/usr/local/bin/usb-backup
 ExecStart=/usr/local/bin/usb-backup-runner.sh
-
-[Install]
-WantedBy=multi-user.target
+# Oneshot services have no start timeout by default, so a hung network mount
+# would block every later run. Raise this if the first full copy needs longer.
+TimeoutStartSec=12h
